@@ -1,0 +1,26 @@
+def f(x):
+    return x**3 + x*9 + 3
+
+def df(x):
+    return 3*x**2 - 9
+
+def metodonew (f, df, start, E, max = 1000):
+    x = start
+    k = 0
+
+    while True:
+        k += 1
+        x1 = x - f(x) / df(x)
+
+        if abs (x1 - x) < E or k >= max:
+            break
+        x = x1
+
+    return x1, k
+
+start = 0.5
+E = 10**-4
+
+##Edrey Lembrar: Para usar as variaveis dentro da função
+raiz, k = metodonew(f, df, start, E)
+print(f'Raiz = {raiz} e o K = {k}')
