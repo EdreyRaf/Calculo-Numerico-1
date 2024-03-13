@@ -1,0 +1,23 @@
+def g(x):
+    return (x**3 + 3) / 9
+
+def metodobis (g, start, E, max = 100):
+    x = start
+    k = 0
+
+    while True:
+        k += 1
+        x1 = g(x)
+
+        if abs (x1 - x) < E or k >= max:
+            break
+        x = x1
+
+    return x1, k
+
+start = 0.5
+E = 10**-4
+
+##Edrey Lembrar: Para usar as variaveis dentro da função
+raiz, k = metodobis(g, start, E)
+print(f'Raiz = {raiz} e o K = {k}')
