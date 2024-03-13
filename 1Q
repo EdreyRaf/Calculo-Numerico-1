@@ -1,0 +1,25 @@
+def f(x):
+    return x**3 - x*9 + 3 
+
+def metodobis (f, a, b, E):
+    if f(a) * f(b) > 0:
+        raise ValueError ('No intevalo colocado não há mudança de sinal')
+    k = 0
+    while (b - a) > E:
+        media = (a + b) / 2
+        if f(media) == 0:
+            return media, k
+        elif f(b) * f(media) < 0:
+            a = media
+        else:
+            b = media
+        k += 1
+    raiz = (a + b)/ 2
+    return raiz, k
+
+a = 0
+b = 1
+E = 10**-4
+##Edrey Lembrar: Para usar as variaveis dentro da função
+raiz, k = metodobis(f, a, b, E)
+print(f'Raiz = {raiz} e o K = {k}')
