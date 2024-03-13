@@ -1,0 +1,23 @@
+def f(x):
+    return x**3 + x*9 + 3
+
+def metodosec (f, x0, x1, E, max = 100):
+    k = 0
+
+    while k < max:
+        k += 1
+        xp = x1 - f(x1) * (x1 - x0)/ f(x1) - f(x0)
+
+        if abs (xp - x) < E:
+            break
+        x0, x1 = x1, xp
+
+    return x1, k
+
+x0 = 0
+x1 = 1
+E = 10**-4
+
+##Edrey Lembrar: Para usar as variaveis dentro da função
+raiz, k = metodosec(f, x0, x1, E)
+print(f'Raiz = {raiz} e o K = {k}')
